@@ -1,0 +1,47 @@
+{% extends 'seller/base.html' %}
+{% load static %}
+{% block header %}
+
+{% endblock%} 
+{{block.super}}
+
+
+{% block content%}
+
+<div style="margin-left:20%">
+  <div class="w3-container w3-teal bg-dark">
+    <h2 class="text-white">PRODUCT CATALOGUE</h2>
+  </div>
+
+
+
+    <div class="row pt-4 align-items-center gy-4  ">
+{% for product in products %}
+      <div class="col-lg-3 col-md-6 col-sm-12 mx-sm-auto">
+        <div class="card " style="width: 16rem;">
+          <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap" height="300px">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.product_name }}</h5>
+              <p class="card-text text-dark fw-bold">#{{ product.code}}</p>
+
+              <p class="card-text text-warning">Rs .{{ product.price }}</p>
+              <p class="card-text text-info00">Description : {{ product.description }}</p>
+              <p class="card-text text-danger">Stock : {{ product.stock }}</p>
+
+              <p class="card-text text-dark">Seller is :{{ product.seller.seller_name }}</p>
+            </div>  
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+
+
+       
+
+
+
+
+
+{% endblock%} 

@@ -1,0 +1,72 @@
+{% extends 'customer/base.html' %}
+{% load static %}
+{% block header %}
+
+{% endblock%} 
+{{block.super}}
+
+
+{% block content%}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">sl.no.</th>
+        <th scope="col">Product image</th>
+        <th scope="col">ProductName</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">TotalPrice</th>
+      </tr>
+    </thead>
+    <tbody>
+   {% for product in cart %}
+
+   <tr>
+
+      <td>{{ forloop.counter }}</td>
+      <td><img src="{{ product.product.image.url }}"  height="100px" alt=""></td>
+      <td>{{ product.product.product_name }}</td>
+      <td class="price">{{ product.product.price }}</td>
+      <td><input type="number" min="1" value="1" max="{{ product.product.stock }}" class="quantity"   item-price ="{{ product.product.price }}" item-id ="{{ product.product.id }}"   >{{ product.product.quantity }}</td>
+      <td  > <span id="span{{product.product.id}}"></span></td>
+
+</tr>
+
+  {% endfor %}
+
+
+    
+
+
+
+     
+    </tbody>
+  </table>
+
+  <script>
+
+   $('input').change( function(){
+
+    price = $(this).attr('item-price')
+    qty = $(this).val()
+    id =$(this).attr('item-id')
+
+    total_price = parseInt(price) * parseInt(qty)
+
+    selected_span_id = 'span' + id
+
+    // console.log(total_price)
+    // console.log(selected_span_id)
+    document.getElementById(selected_span_id).innerHTML = total_price
+
+   })
+
+
+  </script>
+
+
+
+
+
+
+{% endblock%} 

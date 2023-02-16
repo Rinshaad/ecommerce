@@ -1,0 +1,29 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block header %}
+
+{% endblock%} 
+{{block.super}}
+
+
+{% block content%}
+
+
+
+<div class="cotainer-fluid">
+    <div class="row">
+        <div class="col-12">
+            <img src="{% static 'image/home.png'%}" class="img-fluid border-rounded mt-5 " alt="..." width="100%">
+
+                <a href="{% url 'common:customer_login' %}"><button type="button" class="btn btn-dark " style="position: relative; bottom: 400px;left: 50px;"> CUSTOMER</button></a>
+                <a href="{% url 'common:seller_login' %}"><button type="button" class="btn btn-dark" style="position: relative; bottom: 400px;left: 1100px;"> SELLER</button></a>
+
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+    
+{% endblock content %}

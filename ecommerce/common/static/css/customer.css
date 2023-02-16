@@ -1,0 +1,10 @@
+
+ ul a:hover{
+    color: black!important;
+    background-color: aliceblue!important;
+    border-radius: 5px;
+}
+footer a{
+    text-decoration: none;
+    color: red!important;
+}

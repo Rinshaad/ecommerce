@@ -1,0 +1,58 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content%}
+
+<section class="signup mb-5" style="background-color: cadetblue;">
+    <div class="row align-items-center">
+    <h1 class="text-center" style=" font-weight: bold;">CUSTOMER REGISTRATION</h1>
+    <!-- <a href="{% url 'common:customer_login' %}" style="margin-left: 1200px;"><button type="button" class="btn btn-warning">login</button></a> -->
+  </div>
+
+    <h6 class="text-success text-center bg-white">{{ customer_msg }}</h6>
+    <h6 class="text-danger text-center bg-white">{{ exist_msg }}</h6>
+
+
+
+    <div class="container my-5 mx-auto">
+        <div class="row align-items-center shadow border-0  pt-5 pb-5 bg-white">
+           
+            <div class="col-lg-8 col-8 ">
+              <form method="POST">
+                {% csrf_token %}
+                    <label class="control-label" for="date">Your Name</label>
+                      <div class="mb-3">
+                          <input type="text" class="form-control" placeholder="name" aria-label="First name" name="customer_name">
+                        </div>
+                                             
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="address"></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Phone number</label>
+                        <input type="number" class="form-control" name="phone">
+                      </div>
+                      <div class="mb-3">
+                        <label class="control-label" for="date">Gender</label><br><br>
+                        <input type="radio"  id="" name="gender">Male
+                        <input type="radio" id="" name="gender">Female
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                    </div>
+                    
+                    
+                    <button type="submit" class="btn btn-dark">Create</button><br>
+                  </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content%}
+
